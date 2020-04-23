@@ -1,0 +1,20 @@
+/* *****************************
+*
+* Import file to Scss or Sass.
+*
+**************************** */
+
+@import "base/reset";
+@import "base/base";
+@import "layout/common";
+@import "layout/index/navi";
+@import "layout/index/header";
+@import "layout/index/section";
+@import "layout/index/tile";
+@import "layout/index/news";
+@import "layout/index/price";
+@import "layout/index/access";
+@import "layout/index/contact";
+@import "layout/index/modal";
+@import "layout/index/qanda";
+@import "layout/index/footer";

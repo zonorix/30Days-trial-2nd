@@ -1,0 +1,76 @@
+@import "../../module/mixins";
+@import "../../module/variables";
+
+.access {
+  &__container {
+    margin-top: 80px;
+  }
+  &__iframe-wrap {
+    position: relative;
+    width: 100%;
+    padding-top: 50%;
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  &__text-container {
+    margin: 40px 40px 0;
+    color: #333333;
+  }
+  &__address-wrap {
+    line-height: 1;
+  }
+  &__address {
+    &--label {
+      display: inline-block;
+      @include mq("sp") {
+        display: block;
+      }
+    }
+    &--text {
+      display: inline-block;
+      margin-left: 86px;
+      @include mq("sp") {
+        display: block;
+        margin: 12px 0;
+      }
+    }
+  }
+  &__info-wrap {
+    line-height: 1;
+    margin-top: 15px;
+    @include mq("sp") {
+      margin-top: 22px;
+    }
+  }
+  &__info {
+    &--label {
+      display: inline-block;
+      @include mq("sp") {
+        display: block;
+      }
+    }
+    &--text {
+      display: inline-block;
+      margin-left: 54px;
+      @include mq("sp") {
+        display: block;
+        margin: 12px 0;
+      }
+    }
+  }
+  &__btn-wrap {
+    text-align: center;
+  }
+  &__googlemap-btn {
+    @include button;
+    margin-top: 37.85px;
+    line-height: 1.25;
+    background: $mainColor url(/images/btn-right-arrow.svg) no-repeat center
+      right 8px/16px 16px;
+  }
+}

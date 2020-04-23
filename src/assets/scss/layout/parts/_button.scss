@@ -1,0 +1,192 @@
+@import "../../module/mixins";
+@import "../../module/variables";
+
+.button {
+  background-color: $grayBack;
+  padding-bottom: 100px;
+  &__inner-wrap {
+    width: 515px;
+    max-width: 100%;
+    margin: auto;
+    padding: 0 20px;
+  }
+  &__title {
+    @include head;
+  }
+  &__border {
+    @include head-border;
+  }
+  &__item-container {
+    width: 100%;
+    margin-top: 68.57px;
+  }
+  &__item {
+    &--1 {
+      display: block;
+      min-width: 230px;
+      padding: 0 15px;
+      height: 50px;
+      background-color: $mainColor;
+      text-align: left;
+      font-weight: 700;
+      font-size: 1.6rem;
+      color: #fff;
+      border-radius: 3px;
+      margin: auto;
+      font-family: inherit;
+    }
+    &--2 {
+      display: block;
+      min-width: 230px;
+      padding: 0 15px;
+      height: 50px;
+      background-color: $mainColor;
+      text-align: left;
+      font-weight: 700;
+      font-size: 1.6rem;
+      color: #fff;
+      border-radius: 3px;
+      margin: 30px auto 0;
+      position: relative;
+      font-family: inherit;
+      &::after {
+        content: url(/images/arrow.svg);
+        position: absolute;
+        top: 50%;
+        right: 0;
+        padding-right: 12px;
+        line-height: 0;
+        transform: translateY(-50%);
+      }
+    }
+    &--3 {
+      display: block;
+      min-width: 230px;
+      padding: 0 15px;
+      height: 50px;
+      background-color: $mainColor;
+      text-align: left;
+      font-weight: 700;
+      font-size: 1.6rem;
+      color: #fff;
+      border-radius: 3px;
+      margin: 30px auto 0;
+      font-family: inherit;
+      position: relative;
+      &::after {
+        content: url(/images/arrow.svg);
+        position: absolute;
+        top: 50%;
+        left: 138px;
+        padding-right: 12px;
+        line-height: 0;
+        transform: translateY(-50%);
+      }
+    }
+    &--4 {
+      display: block;
+      min-width: 230px;
+      padding: 0 35px;
+      height: 50px;
+      background-color: $mainColor;
+      text-align: left;
+      font-weight: 700;
+      font-size: 1.6rem;
+      color: #fff;
+      border-radius: 3px;
+      margin: 30px auto 0;
+      font-family: inherit;
+    }
+    &--5 {
+      display: block;
+      min-width: 230px;
+      padding: 0 35px;
+      height: 50px;
+      background: linear-gradient(to bottom, $mainColor, #20295b);
+      text-align: left;
+      font-weight: 700;
+      font-size: 1.6rem;
+      color: #fff;
+      border-radius: 3px;
+      margin: 30px auto 0;
+      font-family: inherit;
+    }
+    &--6-wrap {
+      margin-top: 10px;
+      height: 104px;
+      background-color: #333;
+      border-top: 1px solid #707070;
+      border-bottom: 1px solid #707070;
+      width: 100vw;
+      margin-left: calc(50% - 50vw);
+    }
+    &--6 {
+      display: block;
+      min-width: 230px;
+      padding: 0 35px;
+      height: 50px;
+      background-color: #333;
+      border: 2px solid #fff;
+      text-align: left;
+      font-weight: 700;
+      font-size: 1.6rem;
+      color: #fff;
+      border-radius: 3px;
+      margin: 30px auto 0;
+      font-family: inherit;
+    }
+    &--7 {
+      display: block;
+      width: 123px;
+      height: 123px;
+      background-color: $mainColor;
+      font-weight: 700;
+      font-size: 1.6rem;
+      color: #fff;
+      border-radius: 3px;
+      margin: 27px auto 0;
+      border-radius: 50%;
+      padding: 38px 29px;
+      line-height: 1.6;
+      font-family: inherit;
+    }
+    &--8 {
+      display: block;
+      min-width: 230px;
+      padding: 0 15px;
+      height: 50px;
+      background-color: $mainColor;
+      text-align: left;
+      font-weight: 700;
+      font-size: 1.6rem;
+      color: #fff;
+      border-radius: 115px;
+      margin: 30px auto 0;
+      position: relative;
+      font-family: inherit;
+      &::after {
+        content: url(/images/arrow.svg);
+        position: absolute;
+        top: 50%;
+        right: 0;
+        padding-right: 12px;
+        line-height: 0;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+      }
+    }
+    &--9 {
+      display: block;
+      min-width: 230px;
+      padding: 0 35px;
+      height: 50px;
+      background-color: $mainColor;
+      text-align: left;
+      font-weight: 700;
+      font-size: 1.6rem;
+      color: #fff;
+      margin: 30px auto 0;
+      font-family: inherit;
+    }
+  }
+}

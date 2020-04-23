@@ -1,0 +1,41 @@
+@import "../module/mixins";
+@import "../module/variables";
+
+.floating-top-btn {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  display: none;
+  z-index: 10;
+  &--link {
+    display: block;
+    color: $mainColor;
+    transition: all 0.3s ease 0s;
+    opacity: 0.6;
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+.floating-top-btn-second {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  display: none;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+  opacity: 0.6;
+  z-index: 10;
+  &:hover {
+      opacity: 1;
+    }
+  .bi-chevron-double-up {
+    fill: $mainColor;
+  }
+}
+
+@media screen and (min-width: 767px) {
+  .sp-br {
+    display: none;
+  }
+}

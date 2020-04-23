@@ -1,0 +1,279 @@
+@import "../module/variables";
+
+@mixin mq($breakpoint: sp) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}
+@mixin mq($breakpoint: tab) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}
+
+@mixin imgDef {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+@mixin inner-wrap {
+  max-width: 100%;
+  height: 100%;
+  margin: auto;
+}
+
+@mixin itemContainer {
+  width: 100%;
+  margin-top: 80px;
+  @include mq('sp') {
+    margin-top: 40px;
+  }
+}
+
+@mixin head {
+  font-size: 6rem;
+  font-weight: 700;
+  text-transform: capitalize;
+  text-align: center;
+  line-height: 1;
+  padding-top: 68px;
+  @include mq('sp') {
+    padding-top: 34px;
+    font-size: 5.0rem;
+  }
+}
+@mixin head-border {
+  background-color: #3f51b5;
+  width: 76px;
+  height: 5px;
+  margin: 44.43px auto 0;
+  @include mq('sp') {
+    margin: 22px auto 0;
+  }
+}
+
+@mixin headerNav {
+  &__nav {
+    width: 100%;
+    height: 100px;
+    background-color: $mainColor;
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.16);
+    position: fixed;
+    z-index: 10;
+  }
+  &__inner-wrap {
+    padding: 0 5px 0 20px;
+    @include inner-wrap;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__logo {
+    width: 200px;
+    &--img {
+      @include imgDef;
+    }
+  }
+  &__links-item {
+    display: inline-block;
+    color: #fff;
+    text-transform: capitalize;
+    a {
+      padding: 0 15px;
+    }
+  }
+}
+
+@mixin swiper {
+  .swiper-wrapper {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    .swiper-slide {
+      height: 100vh;
+      @extend .swiper-wrapper;
+      &.img-1 {
+        background-image: url(../images/header-main.png);
+      }
+      &.img-2 {
+        background-image: url(../images/483-1366x700.jpg);
+      }
+      &.img-3 {
+        background-image: url(../images/1083-1366x700.jpg);
+      }
+    }
+  }
+  .swiper-button-prev,
+  .swiper-button-next {
+    width: 75px;
+    height: 75px;
+    margin-top: (-75px/2);
+    @include mq('sp') {
+      display: none;
+    }
+  }
+  .swiper-button-prev {
+    background: url(../images/arrow-prev.svg) no-repeat center center / contain;
+    &::after {
+      content: "";
+    }
+  }
+  .swiper-button-next {
+    background: url(../images/arrow-next.svg) no-repeat center center / contain;
+    &::after {
+      content: "";
+    }
+  }
+  .swiper-pagination {
+    @include mq('tab') {
+      padding-bottom: 60px;
+    }
+  }
+}
+
+@mixin button {
+  font-weight: 700;
+  font-size: 3.8rem;
+  background-color: $mainColor;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+  color: #fff;
+  border-radius: 12px;
+  margin-top: 82px;
+  min-width: 390px;
+  height: 83px;
+  padding: 8px 40px;
+  @include mq('tab') {
+    font-size: 3rem;
+    min-width: 280px;
+    height: 72px;
+  }
+  @include mq('sp') {
+    font-size: 2rem;
+    min-width: 210px;
+    height: 64px;
+  }
+}
+
+//SPヘッダー + ハンバーガーメニュー
+@mixin SPHead {
+  .nav {
+    &__sp-head {
+      background-color: $mainColor;
+      width: 100vw;
+      height: 60px;
+      display: none;
+      z-index: 99;
+      position: fixed;
+    }
+    &__hamburger {
+      height: 18px;
+      position: fixed;
+      right: 20px;
+      top: 20px;
+      width: 24px;
+      cursor: pointer;
+      z-index: 100;
+      &--top,
+      &--center,
+      &--bottom {
+        background: #fff;
+        display: block;
+        height: 2px;
+        position: absolute;
+        transition: transform 0.3s;
+        width: 100%;
+      }
+      &--top {
+        &.active {
+          top: 7px;
+          transform: rotate(45deg);
+        }
+      }
+      &--center {
+        top: 8px;
+        &.active {
+          transform: scale(0);
+        }
+      }
+      &--bottom {
+        bottom: 0;
+        &.active {
+          bottom: 9px;
+          transform: rotate(135deg);
+        }
+      }
+    }
+  }
+}
+
+@mixin SPNavi {
+  .nav {
+    &__sp-head {
+      display: block;
+    }
+    background-color: rgba(63, 81, 181, 0.8);
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    z-index: 99;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s;
+    &.active {
+      visibility: visible;
+      opacity: 1;
+    }
+    &__inner {
+      justify-content: center;
+    }
+    &__list {
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+    }
+    &__item {
+      width: 200px;
+      height: 100%;
+      max-height: 50px;
+      display: block;
+      position: relative;
+      transition: all 0.3s ease 0s;
+      &:not(:first-child) {
+        margin-top: 40px;
+      }
+      &:first-child {
+        margin-top: 60px;
+      }
+      &:last-child {
+        margin-bottom: 60px;
+      }
+      &:hover {
+        opacity: 0.6;
+      }
+      &--link {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        line-height: 50px;
+        //pcの時の処理を初期化---------
+        padding: 0;
+        &:link::before,
+        &:visited::before {
+          display: none;
+        }
+        &:hover::before {
+          display: none;
+        }
+        // --------------
+      }
+    }
+    &__logo {
+      display: none;
+    }
+  }
+}

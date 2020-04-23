@@ -1,0 +1,32 @@
+html {
+  font-size: 62.5% !important;
+}
+
+body {
+  /* プロジェクトによって変動 */
+  color: #000;
+  line-height: 1.6;
+  font-size: 1.6rem;
+  font-family: -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", HelveticaNeue, "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", "Sogoe UI", Verdana, "メイリオ", Meiryo, sans-serif;
+  width: 100%;
+  font-variant-numeric: tabular-nums;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  /* safari hover対策 */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* IE11だけに適応 */
+_:lang(x)::-ms-backdrop, body {
+    font-family: "Segoe UI", "メイリオ", Meiryo, sans-serif;
+}
+
+// コンパイル後のメディアクエリの記述順調整のためのハック----------
+@media screen and (max-width: 1085px) {
+  body {font-size: 1.6rem;}
+}
+@media screen and (max-width: 767px) {
+  body {font-size: 1.6rem;}
+}
+// ------------------------------------------------------------------

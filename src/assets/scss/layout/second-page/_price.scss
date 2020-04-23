@@ -1,0 +1,137 @@
+@import "../../module/mixins";
+@import "../../module/variables";
+
+.price {
+  &__item-container {
+    display: flex;
+    flex-wrap: wrap;
+    @include itemContainer;
+  }
+  &__item {
+    background-color: #fff;
+    width: calc(33.33333333% - 34px / 3);
+    margin: 0 17px 17px 0;
+    border-radius: 4px;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+    &:nth-child(3) {
+      margin-right: 0;
+    }
+    @include mq("tab") {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      flex-direction: column;
+      height: 300px;
+      margin: 0 0 17px 0;
+    }
+    @include mq('sp') {
+      height: 200px;
+    }
+  }
+  &__item-head {
+    color: #333;
+    font-weight: 700;
+    @include mq('tab') {
+      width: 33.33333%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      order: 1;
+    }
+  }
+  &__item-title {
+    font-size: 2rem;
+    text-align: center;
+    margin-top: 53px;
+    line-height: 1;
+    @include mq('tab') {
+      margin-top: 0;
+      display: inline-block;
+      font-size: 1.6rem;
+    }
+  }
+  &__monthly-fee {
+    font-size: 2.4rem;
+    text-align: center;
+    line-height: 1;
+    margin-top: 58px;
+    span {
+      font-size: 4.8rem;
+    }
+    @include mq('tab') {
+      margin-top: 30px;
+      font-size: 1.8rem;
+      span {
+        font-size: 2.8rem;
+      }
+    }
+    @include mq('sp') {
+      margin-top: 20px;
+    }
+  }
+  &__system {
+    margin-top: 64px;
+    background-color: #efefef;
+    @include mq('tab') {
+      width: 66.666666%;
+      margin-top: 0;
+      order: 3;
+    }
+  }
+  &__system-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    &:not(:last-child) {
+      border-bottom: 0.5px solid rgba(0, 0, 0, 0.6);
+    }
+    &--title {
+      width: 50%;
+      text-align: center;
+    }
+    &--content {
+      width: 50%;
+      text-align: center;
+    }
+    @include mq('sp') {
+      height: 40px;
+    }
+  }
+  &__item-foot {
+    padding: 32px 0 40px;
+    text-align: center;
+    @include mq("tab") {
+      text-align: center;
+      flex-basis: 33.33333%;
+      order: 2;
+      padding: 32px 0 0px;
+    }
+    @include mq('sp') {
+      padding: 20px 0 0px;
+    }
+  }
+  &__foot-btn {
+    width: 200px;
+    height: 75px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    font-size: 2rem;
+    font-weight: 700;
+    color: #333;
+    transition: all 0.3s ease 0s;
+    &:hover {
+      color: #fff;
+      background-color: $mainColor;
+    }
+    @include mq('tab') {
+      width: 160px;
+      height: 55px;
+      font-size: 1.6rem;
+    }
+    @include mq('sp') {
+      width: 90%;
+      height: 45px;
+    }
+  }
+}

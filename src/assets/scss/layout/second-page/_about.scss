@@ -1,0 +1,96 @@
+@import "../../module/mixins";
+@import "../../module/variables";
+
+.about {
+  &__item-container {
+    @include itemContainer;
+  }
+  &__list {
+    display: flex;
+    justify-content: center;
+    @include mq('sp') {
+      display: block;
+    }
+  }
+  &__list-item {
+    margin-left: 8px;
+    width: 444px;
+    @include mq('sp') {
+      width: 90%;
+      margin: auto;
+      &:last-child {
+        margin-top: 80px;
+      }
+    }
+  }
+  &__list-title {
+    font-size: 1.8rem;
+    color: $mainColor;
+    background-color: #fff;
+    height: 60px;
+    border: 1px solid $mainColor;
+    border-radius: 30px;
+    text-align: center;
+    line-height: 60px;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease 0s;
+    &:hover {
+      background-color: $mainColor;
+      color: #fff;
+      &::after {
+        background: url(/images/second-page/about-arrow-bottom-white.svg)
+          no-repeat center;
+      }
+    }
+    &::after {
+      content: "";
+      background: url(/images/second-page/about-arrow-bottom.svg) no-repeat
+        center;
+      width: 20px;
+      height: 60px;
+      position: absolute;
+      right: 30px;
+    }
+  }
+  &__list-title-upArrow {
+    font-size: 18px;
+    color: #3f51b5;
+    background-color: #fff;
+    height: 60px;
+    border: 1px solid #3f51b5;
+    border-radius: 30px;
+    font-weight: 400;
+    text-align: center;
+    line-height: 60px;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease 0s;
+    &:hover {
+      background-color: #3f51b5;
+      color: #fff;
+      &::after {
+        background: url(/images/second-page/about-arrow-top-white.svg)
+          no-repeat center;
+      }
+    }
+    &::after {
+      content: "";
+      background: url(/images/second-page/about-arrow-top.svg) no-repeat
+        center;
+      width: 20px;
+      height: 60px;
+      position: absolute;
+      right: 30px;
+    }
+  }
+  &__answer {
+    display: none;
+  }
+  &__answer-text {
+    font-size: 16px;
+    color: #3f51b5;
+    margin-top: 23px;
+    padding: 17px 28px 12px;
+  }
+}

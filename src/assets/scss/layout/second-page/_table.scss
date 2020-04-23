@@ -1,0 +1,38 @@
+@import "../../module/mixins";
+@import "../../module/variables";
+
+.table {
+  &__item-container {
+    @include itemContainer;
+  }
+  &__table {
+    border-collapse: collapse;
+    table-layout: fixed;
+    border: 0.2px solid rgba(0, 0, 0, 0.2);
+  }
+  &__table-row {
+    height: 68px;
+  }
+  &__table-header {
+    background-color: #ddd;
+    width: 180px;
+    text-align: center;
+    vertical-align: middle;
+    border-bottom: 0.2px solid rgba(0, 0, 0, 0.2);
+  }
+  &__table-data {
+    width: 180px;
+    text-align: center;
+    vertical-align: middle;
+    border-top: 0.2px solid rgba(0, 0, 0, 0.2);
+    border-bottom: 0.2px solid rgba(0, 0, 0, 0.2);
+    &--note {
+      text-align: left;
+    }
+    span {
+      color: #de2323;
+      font-weight: 700;
+      font-size: 2rem;
+    }
+  }
+}

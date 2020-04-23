@@ -1,0 +1,329 @@
+@import "../../module/mixins";
+@import "../../module/variables";
+
+$areas: name,
+        email, 
+        type,
+        message,
+        radio,
+        file,
+        privacy;
+
+@each $area in $areas {
+  .contact__#{$area} {
+    grid-area: contact__#{$area};
+  }
+}
+
+.contact {
+  &__container {
+    margin-top: 80px;
+    @include mq("sp") {
+      margin-top: 40px;
+    }
+  }
+  &__form {
+    padding: 56px 0 56px;
+    background-color: #fff;
+  }
+  &__input-fields {
+    display: grid;
+    grid-template: 
+      "contact__name" auto
+      "contact__email" auto
+      "contact__type" auto
+      "contact__message" auto
+      "contact__radio" auto
+      "contact__file" auto
+      "contact__privacy" auto / 1fr;
+    gap: 42px;
+  }
+  &__name,
+  &__email,
+  &__type,
+  &__message {
+    // margin-top: 48px;
+    padding: 0 42px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &--label {
+      width: 177px;
+      font-weight: 700;
+      font-size: 1.8rem;
+      padding-right: 20px;
+    }
+    &--input {
+      //input初期化処理-------
+      border-radius: 0;
+      appearance: none;
+      font-family: inherit;
+      color: inherit;
+      background-color: transparent;
+      background-image: none;
+      font-size: 1em;
+      border: 1px solid rgba(0, 0, 0, 0.16);
+      // ----------------------
+      height: 60px;
+      width: 100%;
+      max-width: 528px;
+      padding: 0 1em;
+      &:focus {
+        //input初期化処理-------
+        border: 1px solid rgba(0, 0, 0, 0.32);
+        box-shadow: none;
+        outline: none;
+        // ---------------------
+      }
+    }
+    @include mq("sp") {
+      display: block;
+      margin-top: 32px;
+      &--input {
+        margin-top: 0.2em;
+        max-width: 100%;
+      }
+    }
+  }
+  &__type {
+    &--input {
+      background: transparent url(/images/select-arrow.svg) no-repeat center
+        right 8px/16px 16px;
+      &::-ms-expand {
+        display: none;
+      }
+    }
+  }
+  &__message {
+    align-items: start;
+    &--input {
+      height: 240px;
+    }
+  }
+  &__radio {
+    margin-top: -2px;
+    padding: 0 42px;
+    @include mq("sp") {
+      margin-top: 24px;
+    }
+  }
+  &__radio-input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    overflow: hidden;
+    padding: 0;
+    clip: rect(0, 0, 0, 0);
+  }
+  &__radio-input + label {
+    display: inline-block;
+    position: relative;
+    padding-left: 1.25em;
+    cursor: pointer;
+    @include mq("sp") {
+      display: block;
+      margin-top: 0.4em;
+    }
+  }
+  &__radio-input + label::before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 1em;
+    height: 1em;
+    margin: auto;
+    border: 1px solid #767676;
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+  &__radio-input + label::after {
+    background: $mainColor;
+    border: 1px solid transparent;
+    border-radius: 50%;
+    content: "";
+    height: 0.5em;
+    width: 0.5em;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    left: 4px;
+    opacity: 0;
+    position: absolute;
+    transition: all 0.3s ease 0s;
+  }
+  &__radio-input:checked + label::after {
+    opacity: 1;
+  }
+  [data-whatinput="keyboard"] &__radio-input:focus + label:before {
+    border-color: #1589ee;
+    box-shadow: 0 0 5px #1589ee;
+  }
+  &__file {
+    display: flex;
+    justify-content: flex-start;
+    padding: 0 42px;
+    @include mq("sp") {
+      display: block;
+      padding: 0 20px;
+    }
+  }
+  &__file-label {
+    display: inline-block;
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: #333;
+    width: 177px;
+    padding-right: 20px;
+  }
+  &__file-wrap {
+    width: 100%;
+    max-width: 528px;
+    &--sp-right {
+      width: 100%;
+    }
+    @include mq("sp") {
+      max-width: 100%;
+      &--sp-left {
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+  &__file-select-btn {
+    color: #fff;
+    background-color: $mainColor;
+    font-weight: 700;
+    border-radius: 8px;
+    display: inline-block;
+    text-align: center;
+    line-height: 40px;
+    width: 100%;
+    max-width: 185px;
+    height: 40px;
+    &:hover {
+      cursor: pointer;
+    }
+    &:focus {
+      border-color: #1589ee;
+      box-shadow: 0 0 5px #1589ee;
+    }
+  }
+  &__file-note {
+    margin-top: 16px;
+    &--text {
+      padding-left: 1em;
+      text-indent: -1em;
+      &::before {
+        content: "※";
+      }
+    }
+    @include mq("sp") {
+      margin: 0 0 0 20px;
+      font-size: 1.25rem;
+    }
+  }
+  &__file-name {
+    background: none;
+    box-shadow: none;
+    border: none;
+  }
+  &__file-name-text {
+    appearance: none;
+    background-image: none;
+    border: 1px solid rgba(0, 0, 0, 0.16);
+    border-radius: 0;
+    color: inherit;
+    font-family: inherit;
+    font-size: 1em;
+    padding: 0.4em 0.8em;
+    display: block;
+    margin-top: 16px;
+    width: 100%;
+    background-color: #dddddd;
+    opacity: 0.7;
+    &:focus {
+      border: 1px solid rgba(0, 0, 0, 0.32);
+      box-shadow: none;
+      outline: none;
+    }
+    @include mq("sp") {
+      margin-top: 0.2em;
+    }
+  }
+  &__privacy {
+    margin-top: -2px;
+    text-align: center;
+  }
+  &__privacy-check {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    overflow: hidden;
+    padding: 0;
+    clip: rect(0, 0, 0, 0);
+  }
+  [data-whatinput="keyboard"]
+    &__privacy-check:focus
+    + &__privacy-label::before {
+    border-color: #1589ee;
+    box-shadow: 0 0 5px #1589ee;
+  }
+  &__privacy-check + &__privacy-label::after {
+    border-bottom: 3px solid #3f51b5;
+    border-left: 3px solid #3f51b5;
+    content: "";
+    display: block;
+    height: 0.6em;
+    left: 0;
+    margin-top: -0.2em;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) rotate(-45deg);
+    transition: all 0.3s ease 0s;
+    width: 1em;
+    opacity: 0;
+  }
+  &__privacy-check:checked + &__privacy-label::after {
+    opacity: 1;
+  }
+  &__privacy-label {
+    display: inline-block;
+    position: relative;
+    padding-left: 1.25em;
+    &::before {
+      content: "";
+      display: inline-block;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 1em;
+      height: 1em;
+      margin: auto;
+      border: 1px solid #767676;
+      border-radius: 3px;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+    &--underline {
+      border-bottom: 1px solid #333;
+      cursor: pointer;
+    }
+  }
+  &__submit-btn {
+    display: block;
+    margin: auto;
+    @include button;
+    background: $mainColor url(/images/btn-right-arrow.svg) no-repeat center
+      right 8px/16px 16px;
+    margin-top: 30px;
+  }
+}

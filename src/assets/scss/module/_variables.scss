@@ -1,0 +1,9 @@
+$mainColor: #3f51b5;
+$grayBack: #efefef;
+
+$layout-width-inner: 1086px;
+$breakpoints: (
+  "sp": "screen and (max-width: 767px)",
+  "tab": "screen and (max-width: #{$layout-width-inner - 1px})",
+  "pc": "screen and (min-width: #{$layout-width-inner})",
+);

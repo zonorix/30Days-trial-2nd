@@ -1,0 +1,42 @@
+@import "../../module/mixins";
+@import "../../module/variables";
+@import "../../vendor/swiper";
+
+.header {
+  &__slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  &__main-text {
+    font-weight: 700;
+    font-size: 6.8rem;
+    text-align: center;
+    padding: 0 20px;
+    &--sub {
+      @extend .header__main-text;
+      font-size: 3.8rem;
+      padding: 0 20px;
+    }
+    @include mq("tab") {
+      font-size: 5.4rem;
+      &--sub {
+        font-size: 3.2rem;
+      }
+    }
+    @include mq("sp") {
+      font-size: 3.8rem;
+      &--sub {
+        font-size: 2.4rem;
+      }
+    }
+  }
+  &__main-button {
+    @include button;
+  }
+}
+
+.swiper-container {
+  @include swiper;
+}

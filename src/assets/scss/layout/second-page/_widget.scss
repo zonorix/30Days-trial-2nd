@@ -1,0 +1,93 @@
+@import "../../module/mixins";
+@import "../../module/variables";
+
+.widget {
+  &__item-container {
+    display: flex;
+    flex-wrap: wrap;
+    @include itemContainer;
+    @include mq('sp') {
+      display: block;
+    }
+  }
+  &__notice-container,
+  &__blog-container {
+    width: calc(50% - 16px / 2);
+    display: block;
+    border: 1px solid $mainColor;
+    border-radius: 4px;
+    @include mq('sp') {
+      width: 100%;
+    }
+  }
+  &__blog-container {
+    margin-left: 16px;
+    @include mq('sp') {
+      margin-left: 0;
+      margin-top: 20px;
+    }
+  }
+  &__head {
+    height: 60px;
+    padding: 15px 16px 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &--notice {
+      @extend .widget__head;
+      background-color: $mainColor;
+    }
+    &--blog {
+      @extend .widget__head;
+      background-color: #b53f6e;
+    }
+  }
+  &__head-title {
+    color: #fff;
+    font-size: 20px;
+    line-height: 1;
+    // vertical-align: middle;
+  }
+  &__more-btn {
+    color: #333;
+    font-weight: 700;
+    background-color: #fff;
+    border-radius: 2px;
+    width: 100px;
+    height: 30px;
+    position: relative;
+    transition: all 0.3s ease 0s;
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+  &__list {
+    padding: 0 18.6px;
+    background-color: #fff;
+  }
+  &__list-item {
+    padding: 24px 0 10px;
+    color: #333;
+    display: flex;
+    justify-content: flex-start;
+    &:not(:last-child) {
+      border-bottom: 1px solid #333;
+    }
+    @include mq('sp') {
+      display: block;
+      padding: 1em 0 0.8em;
+    }
+  }
+  &__list-date {
+    width: 85px;
+    display: inline-block;
+    white-space: nowrap;
+  }
+  &__list-text {
+    display: inline-block;
+    margin-left: 24px;
+    @include mq('sp') {
+      margin: 0.2em 0 0 0;
+    }
+  }
+}
