@@ -25,13 +25,13 @@ const compileSass = () => {
     )
     .pipe(postcss([mqpacker()]))
     .pipe(dest("dist/css"));
-}
+};
 
-const taskBabel = () => {
+const taskBabel = (done) => {
   src("src/assets/js/**/*.js")
     .pipe(
       babel({
-        presets: ["@babel/env"],
+        presets: ["@babel/preset-env"],
       })
     )
     .pipe(uglify())
@@ -41,6 +41,7 @@ const taskBabel = () => {
       })
     )
     .pipe(dest("dist/js"));
+    done();
 };
 
 const serve = (done) => {
@@ -67,9 +68,10 @@ const serve = (done) => {
 
 const watchFiles = (done) => {
   watch("src/assets/scss/**/*.scss", compileSass);
-  watch("src/assets/js/**/*.js", taskBabel);
+  // watch("src/assets/js/**/*.js", taskBabel);
   done();
 };
 
 exports.default = parallel(serve, watchFiles);
 exports.compile = compileSass;
+exports.babel = taskBabel;

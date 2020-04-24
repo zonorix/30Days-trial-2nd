@@ -1,18 +1,19 @@
-// swiper-menu-4
-var swiper = new Swiper(".swiper-container", {
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
-  },
-  loop: true,
-  pagination: {
-    el: ".swiper-pagination",
-    type: "bullets",
-    clickable: true,
-  },
-});
 
 jQuery(function ($) {
+  // swiper-menu-4
+  const swiper = new Swiper(".swiper-container", {
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    loop: true,
+    pagination: {
+      el: ".swiper-pagination",
+      type: "bullets",
+      clickable: true,
+    },
+  });
+
   //ファイル添付------------------------
   $(".js-contact-file")
     .css({
@@ -32,20 +33,16 @@ jQuery(function ($) {
       });
     })
     .change(function () {
-      var val = $(this).val();
-      var path = val.replace(/\\/g, "/");
-      var match = path.lastIndexOf("/");
+      const val = $(this).val();
+      const path = val.replace(/\\/g, "/");
+      const match = path.lastIndexOf("/");
       $(".js-contact-file-name").text(
         match !== -1 ? val.substring(match + 1) : val
       );
     });
-  // --------------------------------------
+  // // --------------------------------------
 
-  //waw初期化-------------------------
-  new WOW().init();
-  // --------------------------------------
-
-  //ドロワーメニュー----------------
+  // //ドロワーメニュー----------------
   $(".js-hamburger-toggle").on("click", function () {
     $(".js-hamburger-toggle span").toggleClass("active");
 
@@ -64,10 +61,10 @@ jQuery(function ($) {
       return;
     }
   });
-  // --------------------------------------
+  // // --------------------------------------
 
-  //ページトップへ戻る---------------------
-  var topBtn = $(".js-to-top");
+  // //ページトップへ戻る---------------------
+  const topBtn = $(".js-to-top");
   topBtn.hide();
 
   $(window).scroll(function () {
@@ -87,27 +84,28 @@ jQuery(function ($) {
     );
     return false;
   });
-  // --------------------------------------
+  // // --------------------------------------
 
-  //ページ内リンクスムーススクロール--------
+  // //ページ内リンクスムーススクロール--------
   $('a[href^="#"]').on("click", function () {
+    let headerHight = 0;
     if (matchMedia("(max-width: 767px").matches) {
       headerHight = 60; //SP時のヘッダhight
     } else {
       headerHight = 100; //PC時のヘッダhight
     }
-    var speed = 500;
-    var href = $(this).attr("href");
-    var target = $(href == "#" || href == "" ? "html" : href);
-    var position = target.offset().top - headerHight; //ヘッダ―の高さ分位置をずらす
+    const speed = 500;
+    const href = $(this).attr("href");
+    const target = $(href == "#" || href == "" ? "html" : href);
+    const position = target.offset().top - headerHight; //ヘッダ―の高さ分位置をずらす
     $("html, body").animate({ scrollTop: position }, speed, "swing");
     return false;
   });
-  // ---------------------------------------
+  // // ---------------------------------------
 
-  // ナビゲーションに現在位置を表示する------------------------------
-  var set = 200;
-  var boxTop = new Array();
+  // // ナビゲーションに現在位置を表示する------------------------------
+  const set = 200;
+  const boxTop = new Array();
   let current = -1;
 
   $(".position-now").each(function (i) {
@@ -137,9 +135,9 @@ jQuery(function ($) {
   }
 
   $(window).scroll(function () {
-    scrollPosition = $(window).scrollTop();
+    const scrollPosition = $(window).scrollTop();
     for (let i = boxTop.length - 1; i >= 0; i--) {
-      if ($(window).scrollTop() > boxTop[i] - set) {
+      if (scrollPosition > boxTop[i] - set) {
         changeBox(i);
         break;
       }
@@ -148,7 +146,7 @@ jQuery(function ($) {
 
   // アコーディオン---------------------------------------
   $(".js-answer-toggle").on("click", function () {
-    var $answer = $(this).parent().find(".q-a__answer");
+    const $answer = $(this).parent().find(".q-a__answer");
 
     if ($(".q-a__answer").hasClass("q-a-open")) {
       $answer.removeClass("q-a-open");
@@ -168,7 +166,7 @@ jQuery(function ($) {
         .addClass("q-a__question--minus-icon");
     }
   });
-  // -----------------------------------------------------
+  // // -----------------------------------------------------
 
   // モーダル---------------------------------------------
   $(".js-modal-show").on("click", function () {
@@ -179,4 +177,8 @@ jQuery(function ($) {
   });
 
   // ----------------------------------------------------
+  //waw初期化-------------------------
+  new WOW().init();
+  // --------------------------------------
 });
+
