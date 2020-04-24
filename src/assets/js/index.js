@@ -32,9 +32,9 @@ jQuery(function ($) {
       });
     })
     .change(function () {
-      const val = $(this).val();
-      const path = val.replace(/\\/g, "/");
-      const match = path.lastIndexOf("/");
+      var val = $(this).val();
+      var path = val.replace(/\\/g, "/");
+      var match = path.lastIndexOf("/");
       $(".js-contact-file-name").text(
         match !== -1 ? val.substring(match + 1) : val
       );
@@ -67,7 +67,7 @@ jQuery(function ($) {
   // --------------------------------------
 
   //ページトップへ戻る---------------------
-  const topBtn = $(".js-to-top");
+  var topBtn = $(".js-to-top");
   topBtn.hide();
 
   $(window).scroll(function () {
@@ -96,18 +96,18 @@ jQuery(function ($) {
     } else {
       headerHight = 100; //PC時のヘッダhight
     }
-    const speed = 500;
-    const href = $(this).attr("href");
-    const target = $(href == "#" || href == "" ? "html" : href);
-    const position = target.offset().top - headerHight; //ヘッダ―の高さ分位置をずらす
+    var speed = 500;
+    var href = $(this).attr("href");
+    var target = $(href == "#" || href == "" ? "html" : href);
+    var position = target.offset().top - headerHight; //ヘッダ―の高さ分位置をずらす
     $("html, body").animate({ scrollTop: position }, speed, "swing");
     return false;
   });
   // ---------------------------------------
 
   // ナビゲーションに現在位置を表示する------------------------------
-  const set = 200;
-  const boxTop = new Array();
+  var set = 200;
+  var boxTop = new Array();
   let current = -1;
 
   $(".position-now").each(function (i) {

@@ -18,7 +18,10 @@
     }
   }
   &__img {
-    @include imgDef;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    display: block;
   }
   &__table-wrap {
     width: 55.7798%;

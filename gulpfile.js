@@ -9,7 +9,7 @@ const rename = require("gulp-rename");
 const browserSync = require("browser-sync").create();
 
 const compileSass = () => {
-  src("src/assets/scss/*.scss")
+  src("src/assets/scss/**/*.scss")
     .pipe(
       sass({
         outputStyle: "expanded"
@@ -25,7 +25,7 @@ const compileSass = () => {
     )
     .pipe(postcss([mqpacker()]))
     .pipe(dest("dist/css"));
-};
+}
 
 const taskBabel = () => {
   src("src/assets/js/**/*.js")
@@ -43,7 +43,7 @@ const taskBabel = () => {
     .pipe(dest("dist/js"));
 };
 
-const serve = () => {
+const serve = (done) => {
   browserSync.init({
     files: [
       "**/**/*.html",
@@ -62,6 +62,7 @@ const serve = () => {
     open: "external",
     host: "192.168.11.11"
   });
+  done();
 };
 
 const watchFiles = (done) => {
