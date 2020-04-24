@@ -1,5 +1,4 @@
 @import "../../module/mixins";
-@import "../../module/variables";
 
 .card {
   &__item-container {
@@ -10,7 +9,7 @@
     grid-auto-rows: 1fr;
     grid-row-gap: 20px;
     grid-column-gap: 30px;
-    @include mq('sp') {
+    @include mq("sp") {
       margin-top: 40px;
     }
   }

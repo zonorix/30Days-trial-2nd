@@ -1,5 +1,4 @@
 @import "../../module/mixins";
-@import "../../module/variables";
 
 .about {
   &__item-container {
@@ -8,14 +7,14 @@
   &__list {
     display: flex;
     justify-content: center;
-    @include mq('sp') {
+    @include mq("sp") {
       display: block;
     }
   }
   &__list-item {
     margin-left: 8px;
     width: 444px;
-    @include mq('sp') {
+    @include mq("sp") {
       width: 90%;
       margin: auto;
       &:last-child {
@@ -70,14 +69,13 @@
       background-color: #3f51b5;
       color: #fff;
       &::after {
-        background: url(/images/second-page/about-arrow-top-white.svg)
-          no-repeat center;
+        background: url(/images/second-page/about-arrow-top-white.svg) no-repeat
+          center;
       }
     }
     &::after {
       content: "";
-      background: url(/images/second-page/about-arrow-top.svg) no-repeat
-        center;
+      background: url(/images/second-page/about-arrow-top.svg) no-repeat center;
       width: 20px;
       height: 60px;
       position: absolute;

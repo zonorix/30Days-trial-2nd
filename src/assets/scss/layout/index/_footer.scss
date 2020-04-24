@@ -1,5 +1,4 @@
 @import "../../module/mixins";
-@import "../../module/variables";
 
 .footer {
   color: #fff;
@@ -63,7 +62,7 @@
       }
     }
     &:first-child {
-      @include mq('sp') {
+      @include mq("sp") {
         margin: 0 10px;
       }
     }

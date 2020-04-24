@@ -1,5 +1,4 @@
 @import "../../module/mixins";
-@import "../../module/variables";
 
 .voice {
   &__item-container {
@@ -15,7 +14,7 @@
     &:not(:nth-child(1)) {
       margin-top: 41px;
     }
-    @include mq('sp') {
+    @include mq("sp") {
       display: block;
       box-shadow: none;
     }
@@ -26,7 +25,7 @@
     img {
       @include imgDef;
     }
-    @include mq('sp') {
+    @include mq("sp") {
       width: 100%;
     }
   }
@@ -37,7 +36,7 @@
     padding: 23px 25px 30px 35px;
     border: 0.5px solid #eee;
     border-left: none;
-    @include mq('sp') {
+    @include mq("sp") {
       width: 100%;
       border: 0.5px solid #eee;
       border-top: none;

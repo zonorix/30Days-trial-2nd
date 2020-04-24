@@ -1,5 +1,4 @@
 @import "../../module/mixins";
-@import "../../module/variables";
 
 .nav {
   width: 100%;
@@ -20,12 +19,12 @@
     &--img {
       @include imgDef;
     }
-    @include mq('sp') {
+    @include mq("sp") {
       display: none;
     }
   }
   &__links {
-    @include mq('sp') {
+    @include mq("sp") {
       width: 100%;
       text-align: center;
     }

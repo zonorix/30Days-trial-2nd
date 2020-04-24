@@ -1,5 +1,4 @@
 @import "../../module/mixins";
-@import "../../module/variables";
 
 .price {
   &__item-container {
@@ -25,14 +24,14 @@
       height: 300px;
       margin: 0 0 17px 0;
     }
-    @include mq('sp') {
+    @include mq("sp") {
       height: 200px;
     }
   }
   &__item-head {
     color: #333;
     font-weight: 700;
-    @include mq('tab') {
+    @include mq("tab") {
       width: 33.33333%;
       display: flex;
       flex-direction: column;
@@ -45,7 +44,7 @@
     text-align: center;
     margin-top: 53px;
     line-height: 1;
-    @include mq('tab') {
+    @include mq("tab") {
       margin-top: 0;
       display: inline-block;
       font-size: 1.6rem;
@@ -59,21 +58,21 @@
     span {
       font-size: 4.8rem;
     }
-    @include mq('tab') {
+    @include mq("tab") {
       margin-top: 30px;
       font-size: 1.8rem;
       span {
         font-size: 2.8rem;
       }
     }
-    @include mq('sp') {
+    @include mq("sp") {
       margin-top: 20px;
     }
   }
   &__system {
     margin-top: 64px;
     background-color: #efefef;
-    @include mq('tab') {
+    @include mq("tab") {
       width: 66.666666%;
       margin-top: 0;
       order: 3;
@@ -95,7 +94,7 @@
       width: 50%;
       text-align: center;
     }
-    @include mq('sp') {
+    @include mq("sp") {
       height: 40px;
     }
   }
@@ -108,7 +107,7 @@
       order: 2;
       padding: 32px 0 0px;
     }
-    @include mq('sp') {
+    @include mq("sp") {
       padding: 20px 0 0px;
     }
   }
@@ -124,12 +123,12 @@
       color: #fff;
       background-color: $mainColor;
     }
-    @include mq('tab') {
+    @include mq("tab") {
       width: 160px;
       height: 55px;
       font-size: 1.6rem;
     }
-    @include mq('sp') {
+    @include mq("sp") {
       width: 90%;
       height: 45px;
     }

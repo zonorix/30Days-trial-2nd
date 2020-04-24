@@ -1,5 +1,4 @@
 @import "../../module/mixins";
-@import "../../module/variables";
 
 .more {
   &__item-container {
@@ -13,20 +12,20 @@
     &:not(:last-child) {
       border-bottom: solid 1px #333;
     }
-    @include mq('sp') {
+    @include mq("sp") {
       display: block;
     }
   }
   &__item-date {
     margin-left: 7.5px;
-    @include mq('sp') {
+    @include mq("sp") {
       margin-left: 0;
     }
   }
   &__item-lead {
     margin-left: 24px;
     width: 68.735%;
-    @include mq('sp') {
+    @include mq("sp") {
       margin-left: 0;
       width: 100%;
     }
@@ -44,7 +43,7 @@
     &:hover {
       opacity: 0.6;
     }
-    @include mq('sp') {
+    @include mq("sp") {
       display: block;
       margin: 1em 1em 0 auto;
     }

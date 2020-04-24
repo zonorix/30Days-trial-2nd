@@ -1,13 +1,6 @@
 @import "../../module/mixins";
-@import "../../module/variables";
 
-$areas: name,
-        email, 
-        type,
-        message,
-        radio,
-        file,
-        privacy;
+$areas: name, email, type, message, radio, file, privacy;
 
 @each $area in $areas {
   .contact__#{$area} {
@@ -28,7 +21,7 @@ $areas: name,
   }
   &__input-fields {
     display: grid;
-    grid-template: 
+    grid-template:
       "contact__name" auto
       "contact__email" auto
       "contact__type" auto

@@ -1,5 +1,4 @@
 @import "../../module/mixins";
-@import "../../module/variables";
 
 .time {
   &__item-container {
@@ -31,9 +30,9 @@
     background-color: #999;
     text-align: center;
     vertical-align: middle;
-    @include mq('sp') {
-        font-size: 1.4rem;
-      }
+    @include mq("sp") {
+      font-size: 1.4rem;
+    }
     &--top {
       @extend .time__table-header;
       width: 160px;
@@ -51,7 +50,7 @@
       color: #333;
       text-align: center;
       vertical-align: middle;
-      @include mq('sp') {
+      @include mq("sp") {
         font-size: 1.4rem;
       }
     }

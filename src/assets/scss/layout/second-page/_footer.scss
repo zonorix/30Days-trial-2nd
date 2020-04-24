@@ -1,11 +1,10 @@
 @import "../../module/mixins";
-@import "../../module/variables";
 
 .footer {
   color: #fff;
   background: linear-gradient(to bottom, #666, #333);
   padding: 84px 20px 32px;
-  @include mq('tab') {
+  @include mq("tab") {
     padding: 32px 20px 32px;
   }
   &__inner-wrap {
@@ -15,7 +14,7 @@
     justify-content: space-between;
     flex-wrap: wrap;
     flex-direction: row;
-    @include mq('tab') {
+    @include mq("tab") {
       justify-content: center;
     }
   }
@@ -35,7 +34,7 @@
       display: inline-block;
       margin-left: 38px;
     }
-    @include mq('tab') {
+    @include mq("tab") {
       display: none;
     }
   }
